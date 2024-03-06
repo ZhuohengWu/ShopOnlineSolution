@@ -16,9 +16,8 @@ namespace ShopOnline.Api
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            builder.Services.AddDbContextPool<ShopOnlineDbContext>
-            (
-                options => options.UseSqlServer(builder.Configuration.GetConnectionString("ShopOnlineConnection"))
+            builder.Services.AddDbContextPool<ShopOnlineDbContext>(options => 
+                options.UseSqlServer(builder.Configuration.GetConnectionString("ShopOnlineConnection"))
             );
 
             var app = builder.Build();

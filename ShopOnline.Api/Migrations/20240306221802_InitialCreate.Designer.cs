@@ -11,7 +11,7 @@ using ShopOnline.Api.Data;
 namespace ShopOnline.Api.Migrations
 {
     [DbContext(typeof(ShopOnlineDbContext))]
-    [Migration("20240306182833_InitialCreate")]
+    [Migration("20240306221802_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -388,6 +388,7 @@ namespace ShopOnline.Api.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
