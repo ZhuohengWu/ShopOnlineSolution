@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using ShopOnline.Api.Data;
+
 namespace ShopOnline.Api
 {
     public class Program
@@ -13,7 +16,10 @@ namespace ShopOnline.Api
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            
+            builder.Services.AddDbContextPool<ShopOnlineDbContext>
+            (
+                options => options.UseSqlServer(builder.Configuration.GetConnectionString("ShopOnlineConnection"))
+            );
 
             var app = builder.Build();
 
